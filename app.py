@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = 'top_secret_secret_key'
 debug = DebugToolbarExtension(app)
 
 connect_db(app)
-db.create_all()
+db.create_all(app=app)
 
 @app.route('/')
 def root():
