@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, render_template
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db
+from models import db, connect_db, User
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
@@ -53,7 +53,7 @@ def edit_user(user_id):
     user = User.query.get_or_404(user_id)
     return render_template('/templates/edit_user.html')
 
-@app.route('/users/<int:user_id>/edit' methods=['POST'])
+@app.route('/users/<int:user_id>/edit', methods=['POST'])
 def update_user(user_id):
 
     user = User.query.get_or_404(user_id)
