@@ -15,7 +15,7 @@ class User(db.Model):
 
     posts = db.relationship('Post', backref='user', cascade='all, delete-orphan')
 
-class Post(db.model):
+class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
