@@ -53,7 +53,7 @@ def user_details(user_id):
 def edit_user(user_id):
     
     user = User.query.get_or_404(user_id)
-    return render_template('edit_user.html')
+    return render_template('edit_user.html', user=user)
 
 @app.route('/users/<int:user_id>/edit', methods=['POST'])
 def update_user(user_id):
