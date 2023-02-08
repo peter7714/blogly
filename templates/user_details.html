@@ -10,5 +10,14 @@
         <button formaction="/users/{{user.id}}/edit" formmethod="GET">Edit</button>
         <button formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
     </form>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+        <li>{{post.title}}</li>
+        {% endfor %}
+    </ul>
+    <form>
+        <button formaction="undefined" formmethod="GET">Add Post</button>
+    </form>
 </div>
 {% endblock %}
