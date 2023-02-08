@@ -28,7 +28,7 @@ def users_list():
 def create_user_form():
     return render_template('/templates/create_user.html')
 
-@app.route('users/new', methods=['POST'])
+@app.route('/users/new', methods=['POST'])
 def create_user():
 
     create_user = User(
