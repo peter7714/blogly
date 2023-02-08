@@ -6,7 +6,7 @@
 <div>
     <img src="{{user.image_url}}">
     <h1>{{user.first_name}} {{user.last_name}}</h1>
-    <button>Edit</button>
-    <button>Delete</button>
+    <button formaction="/users/{{user.id}}/edit" formmethod="GET">Edit</button>
+    <button formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
 </div>
 {% endblock %}
