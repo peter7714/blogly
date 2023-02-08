@@ -44,7 +44,7 @@ def create_user():
     return redirect('/users')
 
 @app.route('/users/<int:user_id>')
-def user_details(user_id):
+def user_details(user_id,):
 
     user = User.query.get_or_404(user_id)
     return render_template('user_details.html', user=user)
@@ -120,7 +120,7 @@ def update_post(post_id):
 @app.route('/posts/<int:post_id>/delete', methods=['POST'])
 def delete_post(post_id):
 
-    post = Post.query.get_or_404('post_id')
+    post = Post.query.get_or_404(post_id)
 
     db.session.delete(post)
     db.session.commit()
