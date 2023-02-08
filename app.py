@@ -22,11 +22,11 @@ def root():
 @app.route('/users')
 def users_list():
     users=User.query.order_by(User.last_name, User.first_name).all()
-    return render_template('/templates/index.html', users=users)
+    return render_template('index.html', users=users)
 
 @app.route('/users/new', methods=['GET'])
 def create_user_form():
-    return render_template('/templates/create_user.html')
+    return render_template('create_user.html')
 
 @app.route('/users/new', methods=['POST'])
 def create_user():
@@ -46,13 +46,13 @@ def create_user():
 def user_details(user_id):
 
     user = User.query.get_or_404(user_id)
-    return render_template('/templates/user_details.html', user=user)
+    return render_template('user_details.html', user=user)
 
 @app.route('/users/<int:user_id>/edit')
 def edit_user(user_id):
     
     user = User.query.get_or_404(user_id)
-    return render_template('/templates/edit_user.html')
+    return render_template('edit_user.html')
 
 @app.route('/users/<int:user_id>/edit', methods=['POST'])
 def update_user(user_id):
