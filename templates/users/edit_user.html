@@ -5,12 +5,12 @@
 {% block content %}
 <h1>Edit a User</h1>
 <form action="/users/{{user.id}}/edit" method="POST">
-    <input type="text" name="edit_first_name" placeholder="First Name">
     <label for="first_name">First Name:</label>
-    <input type="text" name="edit_last_name" placeholder="Last Name">
+    <input type="text" name="edit_first_name" placeholder="First Name">
     <label for="last_name">Last Name:</label>
-    <input type="text" name="edit_image_ur" placeholder="Image URL">
+    <input type="text" name="edit_last_name" placeholder="Last Name">
     <label for="image_url">Image URL:</label>
+    <input type="text" name="edit_image_ur" placeholder="Image URL">
     <button>Cancel</button>
     <button>Save</button>
 </form>

@@ -5,10 +5,10 @@
 {% block content %}
 <h1>Edit Post</h1>
 <form action="undefined" method="POST">
-    <input type="text" name="title" placeholder="{{post.title}}">
     <label for="title">Title:</label>
-    <input type="text" name="content" placeholder="{{post.content}}">
+    <input type="text" name="title" placeholder="{{post.title}}">
     <label for="content">Content:</label>
+    <input type="text" name="content" placeholder="{{post.content}}">
     <button formaction="undefined" formmethod="GET">Cancel</button>
     <button formaction="undefined" formmethod="POST">Submit</button>
 </form>

@@ -27,7 +27,7 @@ def users_list():
 
 @app.route('/users/new', methods=['GET'])
 def create_user_form():
-    return render_template('create_user.html')
+    return render_template('/users/create_user.html')
 
 @app.route('/users/new', methods=['POST'])
 def create_user():
@@ -44,16 +44,17 @@ def create_user():
     return redirect('/users')
 
 @app.route('/users/<int:user_id>')
-def user_details(user_id,):
+def user_details(user_id):
 
     user = User.query.get_or_404(user_id)
-    return render_template('user_details.html', user=user)
+
+    return render_template('/users/user_details.html', user=user)
 
 @app.route('/users/<int:user_id>/edit')
 def edit_user(user_id):
     
     user = User.query.get_or_404(user_id)
-    return render_template('edit_user.html', user=user)
+    return render_template('/users/edit_user.html', user=user)
 
 @app.route('/users/<int:user_id>/edit', methods=['POST'])
 def update_user(user_id):
@@ -69,8 +70,8 @@ def update_user(user_id):
     return redirect('/users')
     
 
-@app.route('/user/<int:user_id>/delete', methods=['POST'])
-def delete_users(user_id):
+@app.route('/users/<int:user_id>/delete', methods=['POST'])
+def delete_user(user_id):
 
     user = User.query.get_or_404(user_id)
     db.session.delete(user)
@@ -81,7 +82,7 @@ def delete_users(user_id):
 @app.route('/users/<int:user_id>/posts/new')
 def create_post_form(user_id):
     user = User.query.get_or_404(user_id)
-    return render_template('create_post.html', user=user)
+    return render_template('/posts/create_post.html', user=user)
 
 @app.route('/users/<int:user_id>/posts/new', methods=['POST'])
 def create_post(user_id):
@@ -96,15 +97,17 @@ def create_post(user_id):
     db.session.add(create_post)
     db.session.commit()
 
+    return redirect(f'/users/{user.id}')
+
 @app.route('/posts/<int:post_id>')
 def post_details(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template('post_details.html', post=post)
+    return render_template('/posts/post_details.html', post=post)
 
 @app.route('/posts/<int:post_id>/edit')
 def edit_post(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template('edit_post.html', post=post)
+    return render_template('/posts/edit_post.html', post=post)
 
 @app.route('/posts/<int:post_id>/edit', methods=['POST'])
 def update_post(post_id):
