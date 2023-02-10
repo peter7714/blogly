@@ -11,6 +11,7 @@
         <button formaction="/users/{{user.id}}/delete" formmethod="POST">Delete</button>
     </form>
     <h2>Posts</h2>
+    {% if user.posts %}
     <ul>
         {% for post in user.posts %}
         <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
@@ -19,5 +20,6 @@
     <form>
         <button formaction="/users/{{user.id}}/posts/new" formmethod="GET">Add Post</button>
     </form>
+    {% endif %}
 </div>
 {% endblock %}

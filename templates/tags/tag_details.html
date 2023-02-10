@@ -5,8 +5,12 @@
 {% block content %}
 <h1>{{tag.name}}</h1>
 <ul>
-    {{for post in tag}}
+    {% for post in tags.posts %}
     <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
-    {{endfor}}
+    {% endfor %}
 </ul>
+<form>
+    <button formmethod="GET" formaction="/tags/{{tag.id}}/edit">Edit</button>
+    <button formmethod="POST" formaction="/tags/{{tag.id}}/delete">Delete</button>
+</form>
 {% endblock %}

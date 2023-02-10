@@ -7,13 +7,17 @@
 <p>{{post.content}}</p>
 <caption>By <a href="/users/{{post.user.id}}">{{post.user.first_name}} {{post.user.last_name}}</a></caption>
 <label for="tags">Tags</label>
-<div>
-    {{for tag in tags}}
-    <button><a href="undefined">{{tag.name}}</a></button>
-    {{endfor}}
-</div>
+{% if post.tags %}
+<p>
+    <b>Tags:</b>
+    {% for tag in post.tags %}
+    <a href="/tags/{{tag.id}}">{{tag.name}}</a>
+    {% endfor %}
+</p>
+{% endif %}
 <form>
     <button formaction="/posts/{{post.id}}/edit" formmethod="GET">Edit</button>
     <button formaction="/posts/{{post.id}}/delete" formmethod="POST">Delete</button>
 </form>
+
 {% endblock %}

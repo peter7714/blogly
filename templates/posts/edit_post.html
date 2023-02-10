@@ -4,15 +4,16 @@
 
 {% block content %}
 <h1>Edit Post</h1>
-<form action="undefined" method="POST">
+<form action="posts/{{post.id}}/edit" method="POST">
     <label for="title">Title:</label>
     <input type="text" name="title" placeholder="{{post.title}}">
     <label for="content">Content:</label>
     <input type="text" name="content" placeholder="{{post.content}}">
-    {{for tag in tags}}
-    <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}">
-    {{endfor}}
-    <button><a href="/users">Cancel</a></button>
+    {% for tag in tags %}
+    <input type="checkbox" value="{{tag.id}}" id="tag_{{tag.id}}" {% if tag in post.tags%}checked{% endif %} name="tags">
+    <label for="tag_{{tag.id}}">{{tag.name}}</label>
+    {% endfor %}
+    <button><a href="/users/{{post.user_id}}">Cancel</a></button>
     <button type="submit">Submit</button>
 </form>
 {% endblock %}
