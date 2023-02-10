@@ -9,6 +9,9 @@
     <input type="text" name="title">
     <label for="content">Content:</label>
     <input type="text" name="content">
+    {{for tag in tags}}
+    <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}">
+    {{endfor}}
     <button formaction="/users/{{user.id}}" formmethod="GET">Cancel</button>
     <button type="submit">Add</button>
 </form>

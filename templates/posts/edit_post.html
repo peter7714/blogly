@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}User Details{% endblock %}
+{% block title %}Edit Post{% endblock %}
 
 {% block content %}
 <h1>Edit Post</h1>
@@ -9,7 +9,10 @@
     <input type="text" name="title" placeholder="{{post.title}}">
     <label for="content">Content:</label>
     <input type="text" name="content" placeholder="{{post.content}}">
-    <button formaction="undefined" formmethod="GET">Cancel</button>
-    <button formaction="undefined" formmethod="POST">Submit</button>
+    {{for tag in tags}}
+    <input type="checkbox" name="{{tag.name}}" id="{{tag.name}}">
+    {{endfor}}
+    <button><a href="/users">Cancel</a></button>
+    <button type="submit">Submit</button>
 </form>
 {% endblock %}

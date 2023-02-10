@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Edit678 User{% endblock %}
+{% block title %}Edit User{% endblock %}
 
 {% block content %}
 <h1>Edit a User</h1>
@@ -11,7 +11,7 @@
     <input type="text" name="edit_last_name" placeholder="Last Name">
     <label for="image_url">Image URL:</label>
     <input type="text" name="edit_image_ur" placeholder="Image URL">
-    <button>Cancel</button>
-    <button>Save</button>
+    <button><a href="/users/{{user.id}}">Cancel</a></button>
+    <button type="submit">Save</button>
 </form>
 {% endblock %}
