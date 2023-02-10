@@ -17,9 +17,10 @@
         <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
         {% endfor %}
     </ul>
+    {% endif %}
     <form>
         <button formaction="/users/{{user.id}}/posts/new" formmethod="GET">Add Post</button>
+        <button formaction="/tags/new" formmethod="GET">Add Tag</button>
     </form>
-    {% endif %}
 </div>
 {% endblock %}

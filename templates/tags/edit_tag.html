@@ -8,7 +8,7 @@
     <label for="edit-tag-name">Name:</label>
     <input type="text" name="edit-tag-name" id="edit-tag-name" placeholder="{{tag.name}}">
     {% for post in posts %}
-    <input type="checkbox" value="{{post.id}}" id="post_{{post.id}}" name="posts" {% if post in tags.posts %}checked{% endif %}>
+    <input type="checkbox" value="{{post.id}}" id="post_{{post.id}}" name="posts" {% if post in tag.posts %}checked{% endif %}>
     <label for="post_{{post.id}}">{{post.title}}</label>
     {% endfor %}
     <button><a href="/users">Cancel</a></button>
